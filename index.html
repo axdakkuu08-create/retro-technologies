@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0f12">
-  <meta name="description" content="Explore the independent products and experiments in the RETRO Technologies ecosystem. Technology Without Boundaries.">
+  <meta name="description" content="Discover the independent products in the RETRO Technologies ecosystem: AI, engineering, gaming, entertainment and digital applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RETRO Technologies — Technology Without Boundaries">
+  <meta property="og:description" content="Independent products. One connected ecosystem.">
   <title>RETRO Technologies — Technology Without Boundaries</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -13,83 +16,150 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="RETRO Technologies home">
-      <span class="brand-mark" aria-hidden="true">R</span>
+      <span class="brand-mark" aria-hidden="true"><span>R</span></span>
       <span>RETRO<span class="brand-accent">.</span></span>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-toggle-label">Menu</span><span class="menu-icon" aria-hidden="true"></span>
+    </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="#ecosystem">Ecosystem</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="#ecosystem">Products</a>
+      <a href="#divisions">Divisions</a>
       <a href="#about">About</a>
-      <a href="#principles">Principles</a>
+      <a href="#technology">Technology</a>
+      <a href="#updates">Updates</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#ecosystem">Explore <span aria-hidden="true">↘</span></a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero section-shell">
+    <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> INDEPENDENT PRODUCTS. ONE ECOSYSTEM.</p>
-        <h1>Technology<br><span class="gradient-text">Without Boundaries.</span></h1>
-        <p class="hero-description">A home for ambitious tools, experiments, and experiences across AI, engineering, gaming, entertainment, and beyond.</p>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> RETRO TECHNOLOGIES</p>
+        <h1 id="hero-title">Technology<br><span class="gradient-text">Without Boundaries.</span></h1>
+        <p class="hero-description">A connected ecosystem of independent products built across artificial intelligence, engineering, gaming, entertainment and digital applications.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#ecosystem">Explore the ecosystem <span aria-hidden="true">↘</span></a>
-          <a class="text-link" href="#about">Discover RETRO <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="#ecosystem">Explore products <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#about">About RETRO <span aria-hidden="true">→</span></a>
         </div>
+        <div class="hero-meta"><span>INDEPENDENT PRODUCTS</span><span class="meta-separator" aria-hidden="true"></span><span>ONE CONNECTED ECOSYSTEM</span></div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="core"><span>R</span></div>
-        <span class="orbit-label label-ai">AI</span><span class="orbit-label label-build">BUILD</span><span class="orbit-label label-play">PLAY</span>
+        <div class="hero-grid"></div>
+        <div class="hero-orbit hero-orbit-one"></div>
+        <div class="hero-orbit hero-orbit-two"></div>
+        <div class="hero-orbit hero-orbit-three"></div>
+        <div class="hero-sphere"><span>R</span></div>
+        <span class="orbit-label label-ai">AI / AUTOMATION</span>
+        <span class="orbit-label label-build">ENGINEERING</span>
+        <span class="orbit-label label-play">GAMES / MEDIA</span>
+        <span class="hero-coordinate">CONNECTED / NOT COMBINED</span>
       </div>
-      <div class="hero-foot"><span>BUILT INDEPENDENTLY</span><span>CONNECTED BY VISION</span><span>01 / ECOSYSTEM</span></div>
+      <div class="hero-foot"><span>BUILT INDEPENDENTLY</span><span>CONNECTED BY VISION</span><span>01 — ECOSYSTEM</span></div>
     </section>
 
-    <section id="ecosystem" class="section-shell ecosystem-section">
+    <section id="divisions" class="section-shell divisions-section" aria-labelledby="divisions-title">
       <div class="section-heading">
-        <div><p class="eyebrow">THE PORTFOLIO</p><h2>Explore the ecosystem<span class="brand-accent">.</span></h2></div>
-        <p class="section-intro">Each project has its own purpose, identity, repository, and development path. Select a project to learn more.</p>
+        <div><p class="eyebrow">SIX FIELDS OF EXPLORATION</p><h2 id="divisions-title">One ecosystem.<br><span class="gradient-text">Multiple possibilities.</span></h2></div>
+        <p class="section-intro">Distinct disciplines, connected by a shared commitment to thoughtful technology. Choose a division to narrow the catalogue.</p>
       </div>
-      <div id="project-catalogue" class="catalogue-groups" aria-live="polite">
-        <section class="catalogue-group" aria-labelledby="group-ai"><h3 id="group-ai">AI &amp; Automation</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=nexus-ai"><div class="card-top"><span class="project-symbol" aria-hidden="true">N</span><span class="project-category">AI &amp; Automation</span></div><h3>NEXUS-AI</h3><p>An AI platform focused on intelligent assistants and agent orchestration.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-          <a class="project-card" href="project.html?project=repilot-ai"><div class="card-top"><span class="project-symbol" aria-hidden="true">R</span><span class="project-category">AI &amp; Automation</span></div><h3>RepoPilot AI</h3><p>Repository intelligence and developer assistance for understanding and working with codebases.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
-        <section class="catalogue-group" aria-labelledby="group-entertainment"><h3 id="group-entertainment">Entertainment</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=pulse"><div class="card-top"><span class="project-symbol" aria-hidden="true">P</span><span class="project-category">Entertainment</span></div><h3>Pulse</h3><p>An independent music discovery and streaming product. Pulse remains active as a separate project.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
-        <section class="catalogue-group" aria-labelledby="group-gaming"><h3 id="group-gaming">Gaming</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=arcane-protocol"><div class="card-top"><span class="project-symbol" aria-hidden="true">A</span><span class="project-category">Gaming</span></div><h3>Arcane Protocol</h3><p>A sci-fi first-person shooter project with its own world and gameplay direction.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
-        <section class="catalogue-group" aria-labelledby="group-engineering"><h3 id="group-engineering">Engineering</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=ai-engineering-os"><div class="card-top"><span class="project-symbol" aria-hidden="true">E</span><span class="project-category">Engineering</span></div><h3>AI Engineering OS</h3><p>An AI-assisted engineering workspace focused on structured, verifiable development.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
-        <section class="catalogue-group" aria-labelledby="group-integrations"><h3 id="group-integrations">Integrations</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=gemini-github-bridge"><div class="card-top"><span class="project-symbol" aria-hidden="true">G</span><span class="project-category">Integrations</span></div><h3>Gemini GitHub Bridge</h3><p>An integration project connecting AI workflows with GitHub engineering tasks.</p><span class="project-status">Status not yet verified</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
-        <section class="catalogue-group" aria-labelledby="group-applications"><h3 id="group-applications">Applications</h3><div class="project-grid">
-          <a class="project-card" href="project.html?project=offline-online-app"><div class="card-top"><span class="project-symbol" aria-hidden="true">↔</span><span class="project-category">New Product</span></div><h3>Offline / Online App</h3><p>A separate planned product designed around useful offline capability with connected features when online.</p><span class="project-status">Concept</span><span class="card-link">Explore project <span aria-hidden="true">→</span></span></a>
-        </div></section>
+      <div class="division-grid">
+        <button class="division-card" type="button" data-filter-division="AI &amp; Automation"><span class="division-icon" aria-hidden="true">⌘</span><span class="division-index">01 / INTELLIGENCE</span><strong>AI &amp; Automation</strong><span>Intelligent tools and AI platforms.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
+        <button class="division-card" type="button" data-filter-division="Engineering"><span class="division-icon" aria-hidden="true">⌁</span><span class="division-index">02 / SYSTEMS</span><strong>Engineering</strong><span>Engineering systems and developer tools.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
+        <button class="division-card" type="button" data-filter-division="Gaming"><span class="division-icon" aria-hidden="true">◈</span><span class="division-index">03 / WORLDS</span><strong>Gaming</strong><span>Interactive worlds and game experiences.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
+        <button class="division-card" type="button" data-filter-division="Entertainment"><span class="division-icon" aria-hidden="true">♫</span><span class="division-index">04 / CULTURE</span><strong>Entertainment</strong><span>Music and digital entertainment.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
+        <button class="division-card" type="button" data-filter-division="Integrations"><span class="division-icon" aria-hidden="true">⟷</span><span class="division-index">05 / CONNECTIONS</span><strong>Integrations</strong><span>Connected platforms and services.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
+        <button class="division-card" type="button" data-filter-division="Applications"><span class="division-icon" aria-hidden="true">▣</span><span class="division-index">06 / UTILITIES</span><strong>Applications</strong><span>Independent digital applications.</span><span class="division-arrow" aria-hidden="true">↗</span></button>
       </div>
-      <noscript><p class="notice">JavaScript is disabled. The complete project catalogue remains available above; project detail pages require JavaScript.</p></noscript>
     </section>
 
-    <section id="about" class="about-section">
+    <section id="ecosystem" class="catalogue-section" aria-labelledby="catalogue-title">
+      <div class="section-shell">
+        <div class="section-heading catalogue-heading">
+          <div><p class="eyebrow">THE PORTFOLIO</p><h2 id="catalogue-title">Explore our products<span class="brand-accent">.</span></h2></div>
+          <p class="section-intro">Every product has its own identity, repository and development path. Development status is shown only when publicly verified.</p>
+        </div>
+        <form class="catalogue-tools" role="search" aria-label="Filter the product catalogue" onsubmit="return false">
+          <label class="search-field"><span class="visually-hidden">Search products</span><span class="search-icon" aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Search products" autocomplete="off"></label>
+          <label class="select-field"><span class="visually-hidden">Filter by division</span><select id="division-filter"><option value="all">All divisions</option><option>AI &amp; Automation</option><option>Engineering</option><option>Gaming</option><option>Entertainment</option><option>Integrations</option><option>Applications</option></select></label>
+          <label class="select-field"><span class="visually-hidden">Filter by portfolio classification</span><select id="status-filter"><option value="all">All classifications</option><option value="independent">Independent</option><option value="retained">Retained</option><option value="concept">Concept</option></select></label>
+          <label class="select-field"><span class="visually-hidden">Sort products</span><select id="sort-order"><option value="division">Division order</option><option value="name">Name A–Z</option></select></label>
+          <button id="clear-filters" class="button button-quiet" type="button">Clear filters</button>
+        </form>
+        <p id="catalogue-count" class="catalogue-count" aria-live="polite">7 products</p>
+        <div id="project-catalogue" class="catalogue-groups">
+          <section class="catalogue-group" data-group="AI &amp; Automation" aria-labelledby="group-ai"><div class="group-heading"><h3 id="group-ai">AI &amp; Automation</h3><span>02 PRODUCTS</span></div><div class="project-grid">
+            <a class="project-card" data-name="NEXUS-AI" data-division="AI &amp; Automation" data-status="independent" href="products/nexus-ai/"><div class="card-top"><span class="project-symbol" aria-hidden="true">N</span><span class="project-category">AI &amp; Automation</span></div><h4>NEXUS-AI</h4><p>AI platform and agent orchestration.</p><div class="card-meta"><span class="identity-status">Independent</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+            <a class="project-card" data-name="RepoPilot AI" data-division="AI &amp; Automation" data-status="independent" href="products/repilot-ai/"><div class="card-top"><span class="project-symbol" aria-hidden="true">R</span><span class="project-category">AI &amp; Automation</span></div><h4>RepoPilot AI</h4><p>Repository intelligence and developer assistance.</p><div class="card-meta"><span class="identity-status">Independent</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+          <section class="catalogue-group" data-group="Engineering" aria-labelledby="group-engineering"><div class="group-heading"><h3 id="group-engineering">Engineering</h3><span>01 PRODUCT</span></div><div class="project-grid">
+            <a class="project-card" data-name="AI Engineering OS" data-division="Engineering" data-status="independent" href="products/ai-engineering-os/"><div class="card-top"><span class="project-symbol" aria-hidden="true">E</span><span class="project-category">Engineering</span></div><h4>AI Engineering OS</h4><p>AI-assisted engineering workspace.</p><div class="card-meta"><span class="identity-status">Independent</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+          <section class="catalogue-group" data-group="Gaming" aria-labelledby="group-gaming"><div class="group-heading"><h3 id="group-gaming">Gaming</h3><span>01 PRODUCT</span></div><div class="project-grid">
+            <a class="project-card" data-name="Arcane Protocol" data-division="Gaming" data-status="independent" href="products/arcane-protocol/"><div class="card-top"><span class="project-symbol" aria-hidden="true">A</span><span class="project-category">Gaming</span></div><h4>Arcane Protocol</h4><p>A sci-fi first-person shooter project.</p><div class="card-meta"><span class="identity-status">Independent</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+          <section class="catalogue-group" data-group="Entertainment" aria-labelledby="group-entertainment"><div class="group-heading"><h3 id="group-entertainment">Entertainment</h3><span>01 PRODUCT</span></div><div class="project-grid">
+            <a class="project-card" data-name="Pulse" data-division="Entertainment" data-status="retained" href="products/pulse/"><div class="card-top"><span class="project-symbol" aria-hidden="true">P</span><span class="project-category">Entertainment</span></div><h4>Pulse</h4><p>Independent music discovery and streaming product.</p><div class="card-meta"><span class="identity-status">Retained product</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+          <section class="catalogue-group" data-group="Integrations" aria-labelledby="group-integrations"><div class="group-heading"><h3 id="group-integrations">Integrations</h3><span>01 PRODUCT</span></div><div class="project-grid">
+            <a class="project-card" data-name="Gemini GitHub Bridge" data-division="Integrations" data-status="independent" href="products/gemini-github-bridge/"><div class="card-top"><span class="project-symbol" aria-hidden="true">G</span><span class="project-category">Integrations</span></div><h4>Gemini GitHub Bridge</h4><p>AI and GitHub workflow integration.</p><div class="card-meta"><span class="identity-status">Independent</span><span class="development-status">Development status not verified</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+          <section class="catalogue-group" data-group="Applications" aria-labelledby="group-applications"><div class="group-heading"><h3 id="group-applications">Applications</h3><span>01 PRODUCT</span></div><div class="project-grid">
+            <a class="project-card" data-name="Offline / Online App" data-division="Applications" data-status="concept" href="products/offline-online-app/"><div class="card-top"><span class="project-symbol" aria-hidden="true">↔</span><span class="project-category">Applications</span></div><h4>Offline / Online App</h4><p>A separate application concept combining offline capability with connected online features.</p><div class="card-meta"><span class="identity-status">Concept</span><span class="development-status">Not represented as a released product</span></div><span class="card-link">View details <span aria-hidden="true">→</span></span></a>
+          </div></section>
+        </div>
+        <p id="catalogue-empty" class="empty-state" hidden>No products match those filters. Try a broader search or clear the filters.</p>
+        <noscript><p class="notice">JavaScript is off. All seven product entries remain available above; catalogue search and filters need JavaScript.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section-shell featured-section" aria-labelledby="featured-title">
+      <div class="section-heading"><div><p class="eyebrow">A CLOSER LOOK</p><h2 id="featured-title">Featured projects<span class="brand-accent">.</span></h2></div><p class="section-intro">A rotating selection from across the portfolio. Visuals are original page artwork, not product screenshots.</p></div>
+      <div class="featured-grid">
+        <a class="featured-card featured-nexus" href="products/nexus-ai/"><div class="featured-art art-nexus" aria-hidden="true"><span class="art-orbit"></span><span class="art-core">N</span><span class="art-coordinate">01 / INTELLIGENCE</span></div><div class="featured-copy"><span class="project-category">AI &amp; AUTOMATION</span><h3>NEXUS-AI</h3><p>AI platform and agent orchestration.</p><span class="card-link">Explore project <span aria-hidden="true">↗</span></span></div></a>
+        <a class="featured-card featured-arcane" href="products/arcane-protocol/"><div class="featured-art art-arcane" aria-hidden="true"><span class="art-glyph">A</span><span class="art-coordinate">02 / WORLDS</span></div><div class="featured-copy"><span class="project-category">GAMING</span><h3>Arcane Protocol</h3><p>A sci-fi first-person shooter project.</p><span class="card-link">Explore project <span aria-hidden="true">↗</span></span></div></a>
+        <a class="featured-card featured-engineering" href="products/ai-engineering-os/"><div class="featured-art art-engineering" aria-hidden="true"><span class="art-grid-lines"></span><span class="art-glyph">E</span><span class="art-coordinate">03 / SYSTEMS</span></div><div class="featured-copy"><span class="project-category">ENGINEERING</span><h3>AI Engineering OS</h3><p>AI-assisted engineering workspace.</p><span class="card-link">Explore project <span aria-hidden="true">↗</span></span></div></a>
+      </div>
+      <p class="fine-print">Featured visuals are decorative illustrations and do not indicate verified product availability or interface screenshots.</p>
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-title">
       <div class="section-shell about-grid">
-        <div><p class="eyebrow">WHO WE ARE</p><h2>One umbrella.<br><span class="gradient-text">Independent ideas.</span></h2></div>
-        <div class="about-copy"><p>RETRO Technologies brings independent digital products together under one ecosystem. We build across disciplines while keeping each product focused and independently maintained.</p><p>This website is the central discovery point. It does not combine the products into one application or replace their individual repositories.</p></div>
+        <div><p class="eyebrow">WHO WE ARE</p><h2 id="about-title">We build independent products <span class="gradient-text">under one vision.</span></h2></div>
+        <div class="about-copy"><p>RETRO Technologies is an umbrella ecosystem bringing together products with different purposes, technologies and development paths.</p><p>The central portal provides discovery and navigation while each product remains independently developed and maintained. RETRO connects the work without combining the products into a single application.</p><div class="about-statement"><span class="statement-mark" aria-hidden="true">R</span><span>One connected ecosystem.<br><strong>Room for every product to grow.</strong></span></div></div>
+      </div>
+      <div class="about-pillars" aria-label="RETRO principles">
+        <article><span>01 / MISSION</span><h3>Make useful technology</h3><p>Build focused digital products that solve meaningful problems.</p></article>
+        <article><span>02 / VISION</span><h3>Grow without boundaries</h3><p>Connect ambitious ideas while giving each product room to grow on its own.</p></article>
+        <article><span>03 / ENGINEERING</span><h3>Evidence over hype</h3><p>Choose fit-for-purpose tools, communicate uncertainty, and verify before claiming.</p></article>
+        <article><span>04 / RESPONSIBILITY</span><h3>Build with care</h3><p>Respect privacy, security, accessibility, and the people who use technology.</p></article>
       </div>
     </section>
 
-    <section id="principles" class="section-shell principles-section">
-      <p class="eyebrow">WHAT GUIDES US</p><h2>Built on clear principles<span class="brand-accent">.</span></h2>
-      <div class="principle-grid">
-        <article><span class="principle-number">01</span><h3>Independent by design</h3><p>Every product keeps its own identity, repository, and roadmap.</p></article>
-        <article><span class="principle-number">02</span><h3>Evidence over hype</h3><p>Features and development status should reflect verifiable progress.</p></article>
-        <article><span class="principle-number">03</span><h3>Security conscious</h3><p>Trust, privacy, and responsible engineering matter from the start.</p></article>
-        <article><span class="principle-number">04</span><h3>Made for people</h3><p>Useful, accessible experiences take priority over unnecessary complexity.</p></article>
+    <section id="technology" class="section-shell technology-section" aria-labelledby="technology-title">
+      <div class="section-heading"><div><p class="eyebrow">THE BUILDING BLOCKS</p><h2 id="technology-title">Technology, thoughtfully applied<span class="brand-accent">.</span></h2></div><p class="section-intro">Areas that shape the ecosystem—not a claim that every listed technology is deployed in every product.</p></div>
+      <div class="technology-list"><span>Frontend development</span><span>Backend systems</span><span>AI &amp; machine learning</span><span>Databases</span><span>Cloud infrastructure</span><span>Game development</span><span>Android applications</span><span>Open-source technologies</span></div>
+      <p class="technology-note"><span class="note-mark" aria-hidden="true">i</span> Product-specific stacks and infrastructure are documented only when verified. No shared runtime or service integration is implied.</p>
+    </section>
+
+    <section id="updates" class="updates-section" aria-labelledby="updates-title">
+      <div class="section-shell">
+        <div class="section-heading"><div><p class="eyebrow">FROM THE WORKBENCH</p><h2 id="updates-title">Development updates<span class="brand-accent">.</span></h2></div><p class="section-intro">A small log of public, verifiable milestones. Private project details are not included.</p></div>
+        <article class="timeline-entry"><div class="timeline-date"><time datetime="2026-11-10">10 NOV 2026</time><span>RETRO PORTAL</span></div><div class="timeline-content"><h3>Catalogue organized across six divisions</h3><p>The public RETRO repository groups seven product entries under their respective divisions and preserves Pulse as a separate product.</p><a href="https://github.com/axdakkuu08-create/retro-technologies/commit/4b928de722162d2b23f9f7dcdab8f4846549398b" target="_blank" rel="noopener noreferrer">View the public milestone <span aria-hidden="true">↗</span></a></div></article>
       </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="section-shell contact-panel"><div><p class="eyebrow">STAY CONNECTED</p><h2 id="contact-title">Independent ideas.<br><span class="gradient-text">Shared direction.</span></h2></div><div class="contact-copy"><p>Public contact details have not yet been verified for this portal. We won’t invent an address or social account.</p><a class="button button-secondary" href="https://github.com/axdakkuu08-create/retro-technologies" target="_blank" rel="noopener noreferrer">RETRO public repository <span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
-  <footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>RETRO<span class="brand-accent">.</span></span></a><p>Technology Without Boundaries.</p><span class="footer-note">Independent products. Shared direction.</span></footer>
+  <footer class="site-footer">
+    <div class="footer-main"><a class="brand" href="index.html" aria-label="RETRO Technologies home"><span class="brand-mark" aria-hidden="true"><span>R</span></span><span>RETRO<span class="brand-accent">.</span></span></a><p>Technology Without Boundaries.<br><span>Independent products. One connected ecosystem.</span></p></div>
+    <div class="footer-links"><div><strong>Explore</strong><a href="#ecosystem">Products</a><a href="#divisions">Divisions</a><a href="#updates">Updates</a></div><div><strong>RETRO</strong><a href="#about">About</a><a href="#contact">Contact</a><a href="https://github.com/axdakkuu08-create/retro-technologies" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><div><strong>Information</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> RETRO Technologies</span><span>Built independently. Connected by vision.</span></div>
+  </footer>
 </body>
 </html>

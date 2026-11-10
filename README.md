@@ -2,78 +2,52 @@
 
 **Technology Without Boundaries.**
 
-RETRO Technologies is the parent portal for a collection of independent digital products. The portal provides discovery and navigation; it does not merge product codebases or imply that every product is production-ready.
+RETRO Technologies is a discovery portal for independent products with different purposes, repositories, development paths, and deployments. The portal connects the portfolio without combining products into one application.
+
+## Website contents
+
+- `index.html` — responsive portal homepage, six division cards, static product catalogue, featured projects, company principles, technology categories, verified public update, and contact notice.
+- `styles.css` — design tokens, responsive layouts, original CSS illustration, keyboard focus styles, and reduced-motion support.
+- `script.js` — progressive enhancement for search, division/status filters, alphabetical sort, mobile navigation, and the legacy detail URL redirect.
+- `products/<slug>/index.html` — seven individual product pages served at `/products/<slug>/`.
+- `project.html` — backward-compatible redirect page for old `?project=` links.
+- `privacy.html` and `terms.html` — transparent pre-launch notices; these are not final legal policies.
+- `404.html` — branded missing-page fallback.
+- `robots.txt` — crawler access policy. Add the sitemap URL after the canonical domain is confirmed.
+- `sitemap.xml.template` — route list with an explicit origin placeholder; replace it with the approved domain before public launch.
+
+The site uses plain HTML, CSS, and vanilla JavaScript. No framework, backend, database, analytics, cookies, contact form, or external service integration is required by this implementation.
 
 ## Product catalogue
 
-| Division | Product | Purpose | Catalogue status |
+| Division | Product | Portfolio classification | Development status |
 |---|---|---|---|
-| AI & Automation | NEXUS-AI | AI platform and agent orchestration | Status not yet verified |
-| AI & Automation | RepoPilot AI | Repository intelligence and developer assistance | Status not yet verified |
-| Entertainment | Pulse | Independent music discovery and streaming product | Status not yet verified; remains a separate product |
-| Gaming | Arcane Protocol | Sci-fi first-person shooter project | Status not yet verified |
-| Engineering | AI Engineering OS | AI-assisted engineering workspace | Status not yet verified |
-| Integrations | Gemini GitHub Bridge | AI and GitHub workflow integration | Status not yet verified |
-| Applications | Offline / Online App | New, separate product concept for offline capability with connected online features | Concept |
+| AI & Automation | NEXUS-AI | Independent | Not publicly verified |
+| AI & Automation | RepoPilot AI | Independent | Not publicly verified |
+| Entertainment | Pulse | Retained product | Not publicly verified |
+| Gaming | Arcane Protocol | Independent | Not publicly verified |
+| Engineering | AI Engineering OS | Independent | Not publicly verified |
+| Integrations | Gemini GitHub Bridge | Independent | Not publicly verified |
+| Applications | Offline / Online App | Concept | Not represented as released |
 
-Pulse is not retired, deleted, or replaced. The Offline / Online App is a separate product and does not inherit Pulse's identity or repository.
+Pulse remains a separate retained music product. The Offline / Online App is a separate concept and does not inherit Pulse's identity or repository. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
 
-## Parent portal and product boundaries
+## Local preview
 
-- The RETRO website is the central ecosystem landing page and catalogue.
-- Each product retains its own identity, repository, roadmap, release process, and deployment boundary.
-- Product detail pages are catalogue entries, not evidence that a live service or public release exists.
-- Repository links, product capabilities, operational status, and release claims must be added only after verification.
-- The parent portal is maintained independently from all product repositories.
+From this directory, start any static HTTP server, for example:
 
-## Proposed hosting and deployment architecture
+```sh
+python3 -m http.server 8000
+```
 
-This is a planning proposal, not an approved deployment configuration.
+Open `http://localhost:8000/`. The homepage catalogue is present in HTML and remains readable when JavaScript is disabled; search, filters, sort, and the collapsible mobile menu are progressive enhancements; without JavaScript, the mobile navigation links remain visible.
 
-| Layer | Candidate approach | Boundary / decision |
-|---|---|---|
-| Parent portal | Static site on Cloudflare Pages or Vercel | Existing implementation is vanilla HTML, CSS, and JavaScript. Do not rewrite to React/Next.js without a demonstrated need. |
-| Domain and DNS | Existing Pulse domain may be repurposed for the parent portal, as requested | Exact domain and DNS ownership/configuration must be confirmed before any change. Product subdomains remain proposals only. |
-| NEXUS-AI | Existing Next.js frontend; separately hosted API/backend if required | Keep frontend, API, and data services independently deployable. |
-| Pulse | Independent music application; web and Android delivery as separately verified targets | Media storage/CDN and realtime services are optional architecture choices, not provisioned infrastructure. |
-| Arcane Protocol | Godot native Android/desktop builds; web export only after compatibility testing | Do not promise WebAssembly delivery or multiplayer hosting before a working build and requirements are verified. |
-| AI Engineering OS | Browser/cloud-first workflow with explicit approvals; optional local execution where supported | A CLI-only requirement is not assumed; preserve the current Android/browser workflow constraints. |
-| RepoPilot AI | Independent developer tool | Runtime, package distribution, and hosting are not yet selected. |
-| Gemini GitHub Bridge | Independently hosted integration service | Webhooks, secrets, session storage, and permissions require a separate security review. |
-| Offline / Online App | Separate product and repository boundary | Product name, functionality, storage/sync model, and runtime remain to be defined. |
+## Domain and launch readiness
 
-## Operational tools under consideration
+The canonical domain, DNS ownership, hosting provider, and deployment configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace the `SITE_ORIGIN_REQUIRED` marker with the approved hostname (without `https://`) before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`. Do not configure DNS, hosting, or deployment until the exact domain and owner approval are confirmed.
 
-Chatwoot, OpenProject, Cal.com, Cap, Hoppscotch, and Plausible are candidates for later evaluation. None is a required dependency or confirmed deployment. Self-hosted open-source software may avoid licence fees but still incurs hosting, backup, maintenance, security, and operational costs.
+Before a public launch, also publish final privacy and terms documents and verify the provider's logging, accessibility, security, mobile rendering, and product link behavior. Browser, Android-device, independent-source-review, merge, and deployment approval are separate release gates; they are not claimed as completed by source changes alone.
 
-## Cost and security principles
+## Source repository
 
-- Treat any monthly estimate as a planning range, not a guaranteed bill.
-- Verify current provider limits, bandwidth, storage, build minutes, and overage policies before choosing a platform.
-- Prefer free tiers and open-source tools when they meet the actual requirement.
-- Keep secrets out of source control; use provider-managed environment secrets.
-- Separate production data and credentials between products.
-- Backups, monitoring, access controls, and recovery procedures are part of operational cost.
-- Do not introduce a shared VPS as a single point of failure for unrelated products without an explicit design review.
-
-## Website design direction
-
-- Deep Obsidian: `#0B0F12`
-- Neon Emerald: `#00FF87`
-- White typography
-- Responsive layouts
-- Glassmorphism and subtle grid effects
-- Accessible navigation and reduced-motion support
-
-## Approval and release boundaries
-
-- Website development branch: `feat/retro-website-v1`
-- Default branch: `main`
-- No individual product repository is modified by this website project.
-- No merge, DNS change, hosting connection, or deployment is authorized by this proposal.
-- Main must remain untouched until a separate explicit approval.
-- Browser and Android verification must be recorded separately; source inspection alone is not device verification.
-
-## Current implementation status
-
-The website is an in-progress static HTML/CSS/JavaScript prototype. The catalogue is grouped by division and includes a static HTML fallback. Product links currently open generic catalogue detail pages. No live service status, production hosting, domain mapping, or deployment is claimed.
+https://github.com/axdakkuu08-create/retro-technologies
