@@ -50,6 +50,8 @@ Internal documentation, infrastructure inventories, repository metadata, source 
 
 The script uses Node.js built-in modules only; no package installation or framework build is needed. The Cloudflare project, GitHub connection, branch deployment policy, and domain remain unconfigured.
 
+Cloudflare Pages configuration and approval gates are documented in [the hosting runbook](docs/hosting/cloudflare-pages-runbook.md). The runbook is preparation only; no Cloudflare project or deployment is configured.
+
 ## Domain and launch readiness
 
 The canonical domain, DNS ownership, hosting provider, and deployment configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace it with the approved HTTPS origin before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`.
