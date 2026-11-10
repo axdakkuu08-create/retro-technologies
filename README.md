@@ -2,50 +2,63 @@
 
 **Technology Without Boundaries.**
 
-RETRO Technologies is a discovery portal for independent products with different purposes, repositories, development paths, and deployments. The portal connects the portfolio without combining products into one application.
+RETRO Technologies is a portfolio portal for six independent products. Each product keeps its own identity, repository, development path, platform support, and release cycle. The portal connects the portfolio without combining products into one application.
 
-## Website contents
+## Portfolio
 
-- `index.html` — responsive portal homepage, five division cards, static product catalogue, featured projects, company principles, technology categories, verified public update, and contact notice.
-- `styles.css` — design tokens, responsive layouts, original CSS illustration, keyboard focus styles, and reduced-motion support.
-- `script.js` — progressive enhancement for search, division/status filters, alphabetical sort, mobile navigation, and the legacy detail URL redirect.
-- `products/<slug>/index.html` — six individual product pages served at `/products/<slug>/`.
-- `project.html` — backward-compatible redirect page for old `?project=` links.
-- `privacy.html` and `terms.html` — transparent pre-launch notices; these are not final legal policies.
-- `404.html` — branded missing-page fallback.
-- `robots.txt` — crawler access policy. Add the sitemap URL after the canonical domain is confirmed.
-- `sitemap.xml.template` — route list with an explicit origin placeholder; replace it with the approved domain before public launch.
+| Division | Product | Portfolio classification |
+|---|---|---|
+| AI & Automation | NEXUS-AI | Independent |
+| AI & Automation | RepoPilot AI | Independent |
+| Engineering | AI Engineering OS | Independent |
+| Gaming | Arcane Protocol | Independent |
+| Entertainment | Pulse | Independent |
+| Integrations | Gemini GitHub Bridge | Independent |
 
-The site uses plain HTML, CSS, and vanilla JavaScript. No framework, backend, database, analytics, cookies, contact form, or external service integration is required by this implementation.
+The portfolio currently spans five divisions and six products. Pulse is an independent music product; online and offline listening are part of Pulse's own product direction, not a separate portfolio product. Offline capability must not be represented as released until verified in a distributable build.
 
-## Product catalogue
+## Website source
 
-| Division | Product | Portfolio classification | Development status |
-|---|---|---|---|
-| AI & Automation | NEXUS-AI | Independent | Not publicly verified |
-| AI & Automation | RepoPilot AI | Independent | Not publicly verified |
-| Entertainment | Pulse | Retained product | Not publicly verified |
-| Gaming | Arcane Protocol | Independent | Not publicly verified |
-| Engineering | AI Engineering OS | Independent | Not publicly verified |
-| Integrations | Gemini GitHub Bridge | Independent | Not publicly verified |
+- `index.html` — portfolio homepage and six-product catalogue.
+- `styles.css` — responsive design system, page layouts, and motion/accessibility treatments.
+- `script.js` — progressive enhancement for search, filters, sorting, mobile navigation, and legacy product links.
+- `products/<slug>/index.html` — six independent product pages.
+- `project.html` — compatibility page for older `?project=` links.
+- `privacy.html` and `terms.html` — clearly labelled pre-launch notices; neither is a final legal policy.
+- `404.html` — branded missing-page page.
+- `robots.txt` — crawler policy. A sitemap URL is intentionally absent until the canonical domain is confirmed.
+- `sitemap.xml.template` — sitemap template with a domain placeholder; do not publish it unchanged.
+- `scripts/prepare-public-site.mjs` — creates the curated static-site output.
 
-Pulse is one of the six portfolio projects. Online and offline listening belong to Pulse itself; there is no separate Offline / Online App product or catalogue entry. Offline capability must not be presented as released until verified in a distributable build. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
+The site uses plain HTML, CSS, and vanilla JavaScript. It does not require a framework, backend, database, analytics, cookies, contact form, or external service integration.
 
-## Local preview
+## Public hosting output
 
-From this directory, start any static HTTP server, for example:
+The public build is intentionally allowlisted. The preparation script copies only the homepage, shared assets, six product pages, compatibility page, pre-launch information notices, 404 page, and crawler policy into `dist/`.
 
-```sh
-python3 -m http.server 8000
-```
+Internal documentation, infrastructure inventories, repository metadata, source templates, and other planning files are excluded.
 
-Open `http://localhost:8000/`. The homepage catalogue is present in HTML and remains readable when JavaScript is disabled; search, filters, sort, and the collapsible mobile menu are progressive enhancements; without JavaScript, the mobile navigation links remain visible.
+**Cloudflare Pages build settings (prepared, not configured):**
+
+| Setting | Value |
+|---|---|
+| Framework preset | None |
+| Root directory | `/` |
+| Build command | `node scripts/prepare-public-site.mjs` |
+| Build output directory | `dist` |
+| Source branch for current work | `feat/retro-website-v1` |
+
+The script uses Node.js built-in modules only; no package installation or framework build is needed. The Cloudflare project, GitHub connection, branch deployment policy, and domain remain unconfigured.
 
 ## Domain and launch readiness
 
-The canonical domain, DNS ownership, hosting provider, and deployment configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace the `SITE_ORIGIN_REQUIRED` marker with the approved hostname (without `https://`) before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`. Do not configure DNS, hosting, or deployment until the exact domain and owner approval are confirmed.
+The canonical domain, DNS ownership, hosting provider, and deployment configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace it with the approved HTTPS origin before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`.
 
-Before a public launch, also publish final privacy and terms documents and verify the provider's logging, accessibility, security, mobile rendering, and product link behavior. Browser, Android-device, independent-source-review, merge, and deployment approval are separate release gates; they are not claimed as completed by source changes alone.
+Before a public launch, publish final privacy and terms documents and verify the hosting provider's logging practices, accessibility, security, mobile rendering, and all product links. Browser/device testing, independent review, merge, and deployment approval are separate release gates. Source preparation alone does not establish that the site is ready for public launch.
+
+## Product independence and release accuracy
+
+Each product remains independently developed and maintained. A portfolio page does not establish that a product is live, available, in beta, or released. Repository links, capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
 
 ## Source repository
 
