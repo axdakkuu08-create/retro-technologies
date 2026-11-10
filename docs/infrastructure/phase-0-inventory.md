@@ -9,7 +9,7 @@
 
 - This inventory is read-only.
 - No Cloudflare resources were created, modified, or deleted.
-- No GitHub source files, branches, or releases were changed as part of the inspection.
+- One documentation-only inventory file was added to `feat/retro-website-v1`; no application source files, protected branches, or releases were changed.
 - No DNS, hosting, or production deployment changes are authorized by this document.
 - Protected `main` branches remain untouched.
 
