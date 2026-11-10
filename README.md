@@ -9,7 +9,7 @@ RETRO Technologies is a discovery portal for independent products with different
 - `index.html` — responsive portal homepage, six division cards, static product catalogue, featured projects, company principles, technology categories, verified public update, and contact notice.
 - `styles.css` — design tokens, responsive layouts, original CSS illustration, keyboard focus styles, and reduced-motion support.
 - `script.js` — progressive enhancement for search, division/status filters, alphabetical sort, mobile navigation, and the legacy detail URL redirect.
-- `products/<slug>/index.html` — seven individual product pages served at `/products/<slug>/`.
+- `products/<slug>/index.html` — six individual product pages served at `/products/<slug>/`.
 - `project.html` — backward-compatible redirect page for old `?project=` links.
 - `privacy.html` and `terms.html` — transparent pre-launch notices; these are not final legal policies.
 - `404.html` — branded missing-page fallback.
@@ -30,7 +30,7 @@ The site uses plain HTML, CSS, and vanilla JavaScript. No framework, backend, da
 | Integrations | Gemini GitHub Bridge | Independent | Not publicly verified |
 | Applications | Offline / Online App | Concept | Not represented as released |
 
-Pulse remains a separate retained music product. The Offline / Online App is a separate concept and does not inherit Pulse's identity or repository. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
+Pulse is one of the six independent portfolio projects. Online and offline listening belong to Pulse itself; there is no separate Offline / Online App product or catalogue entry. Offline capability must not be presented as released until verified in a distributable build. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
 
 ## Local preview
 
