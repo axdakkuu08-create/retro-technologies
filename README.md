@@ -6,7 +6,7 @@ RETRO Technologies is a discovery portal for independent products with different
 
 ## Website contents
 
-- `index.html` — responsive portal homepage, six division cards, static product catalogue, featured projects, company principles, technology categories, verified public update, and contact notice.
+- `index.html` — responsive portal homepage, five division cards, static product catalogue, featured projects, company principles, technology categories, verified public update, and contact notice.
 - `styles.css` — design tokens, responsive layouts, original CSS illustration, keyboard focus styles, and reduced-motion support.
 - `script.js` — progressive enhancement for search, division/status filters, alphabetical sort, mobile navigation, and the legacy detail URL redirect.
 - `products/<slug>/index.html` — six individual product pages served at `/products/<slug>/`.
