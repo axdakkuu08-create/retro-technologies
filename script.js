@@ -136,7 +136,7 @@
       "arcane-protocol": "arcane-protocol",
       "ai-engineering-os": "ai-engineering-os",
       "gemini-github-bridge": "gemini-github-bridge",
-      "offline-online-app": "offline-online-app"
+      "offline-online-app": "pulse"
     };
     const selected = new URLSearchParams(window.location.search).get("project");
     if (selected && slugs[selected]) window.location.replace(`products/${slugs[selected]}/`);
