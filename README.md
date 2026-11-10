@@ -28,9 +28,8 @@ The site uses plain HTML, CSS, and vanilla JavaScript. No framework, backend, da
 | Gaming | Arcane Protocol | Independent | Not publicly verified |
 | Engineering | AI Engineering OS | Independent | Not publicly verified |
 | Integrations | Gemini GitHub Bridge | Independent | Not publicly verified |
-| Applications | Offline / Online App | Concept | Not represented as released |
 
-Pulse is one of the six independent portfolio projects. Online and offline listening belong to Pulse itself; there is no separate Offline / Online App product or catalogue entry. Offline capability must not be presented as released until verified in a distributable build. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
+Pulse is one of the six portfolio projects. Online and offline listening belong to Pulse itself; there is no separate Offline / Online App product or catalogue entry. Offline capability must not be presented as released until verified in a distributable build. Repository links, product capabilities, technology stacks, previews, platform availability, and lifecycle claims should only be added when supported by verified public evidence.
 
 ## Local preview
 
