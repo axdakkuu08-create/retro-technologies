@@ -1,6 +1,6 @@
 # RETRO Technologies — Cloudflare Pages Hosting Runbook
 
-**Status:** Pages project created; GitHub source connection blocked; no deployments  \
+**Status:** GitHub source connected; feature-branch previews deployed; production deployment not successful  \
 **Last verified:** 11 November 2026  \
 **Repository:** `axdakkuu08-create/retro-technologies`  \
 **Working branch:** `feat/retro-website-v1`  \
@@ -28,14 +28,15 @@ A Pages project has been created in the connected Cloudflare account.
 | Build output directory | `dist` |
 | Node.js | 22 |
 | Production branch field | `main` |
-| GitHub source connection | Not connected |
-| Production deployments | Disabled |
-| Preview deployments | Disabled (`none`) |
+| GitHub source connection | Connected to `axdakkuu08-create/retro-technologies` |
+| Production deployments | Enabled in current source configuration |
+| Preview deployments | All branches (`*`) |
 | Custom domain / DNS | Not configured |
-| Latest / canonical deployment | None |
-| Deployment inventory | Empty (0 deployments) |
+| Latest deployment | Successful preview from `feat/retro-website-v1` |
+| Canonical production deployment | None |
+| Deployment inventory | 3 deployments: 2 successful previews, 1 failed ad-hoc production build |
 
-The `.pages.dev` hostname is reserved but currently has no deployed site behind it. The production branch field is project configuration only; it does not mean a deployment has occurred.
+The project now has a successful preview at [the branch preview URL](https://feat-retro-website-v1.retro-technologies.pages.dev). The project-level `.pages.dev` hostname is reserved, and the feature-branch alias is available for preview. The production branch field remains `main`; no successful production deployment exists.
 
 ## 3. Prepared build configuration
 
@@ -43,9 +44,9 @@ The build script uses Node.js built-in modules only and copies an explicit allow
 
 The source build was independently checked by GitHub Actions run [#42812468471](https://github.com/axdakkuu08-create/retro-technologies/actions/runs/42812468471), which completed successfully on the website feature branch. That CI result validates the repository build and output-boundary checks; it does not validate Cloudflare Git integration or prove a deployed site works.
 
-## 4. GitHub source connection — blocked
+## 4. GitHub source connection — connected; initial error history retained
 
-The Cloudflare Pages GitHub source-connection API request failed twice with HTTP 401 and Cloudflare error `8000011`:
+The Cloudflare Pages GitHub source-connection API request initially failed twice with HTTP 401 and Cloudflare error `8000011`:
 
 > There is an internal issue with your Cloudflare Pages Git installation.
 
@@ -56,15 +57,23 @@ The GitHub **Cloudflare Workers and Pages** App is installed on the `axdakkuu08-
 - Repository access is set to **All repositories**.
 - The app has metadata read access and administration, checks, code, deployments, and pull requests read/write access.
 
-This confirms the repository is not excluded by the app's repository-selection setting. It does not prove that Cloudflare's Pages Git integration has a healthy authorization handshake or that this repository is linked to the Pages project.
+Subsequent Cloudflare API reads now show the Pages project source as connected to the repository. Two GitHub push-triggered preview deployments from `feat/retro-website-v1` completed successfully. Their logs confirm repository cloning, execution of `node scripts/prepare-public-site.mjs`, preparation of 14 allowlisted files, and publication of those files.
 
-### Diagnostic conclusion
+A separate ad-hoc production deployment attempted against `main` SHA `f964f960cd2a7b87caba4c76fc3b0c5666224a44` failed during build because that older revision does not contain `scripts/prepare-public-site.mjs`. It did not reach the deploy stage. The `main` branch itself was not modified.
 
-The static build script and Cloudflare build settings show no obvious cause for error `8000011`. The failure currently points to the Cloudflare Pages Git integration / authorization layer. The Pages project itself is accessible through the Cloudflare API, but its source is not connected. Cloudflare's official [Pages troubleshooting guide](https://developers.cloudflare.com/pages/configuration/git-integration/troubleshooting/) classifies this exact message as an internal error in the Pages source-control-management (SCM) system. Its [GitHub integration guide](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/) recommends reinstalling the GitHub App as a recovery step and contacting Cloudflare support if the issue persists.
+### Current diagnostic conclusion
 
-A read-only review of Cloudflare's published API schema found a Pages source-connect operation, but no documented read endpoint for inspecting the account's Git installation handshake. The existing Pages project and deployment state can be checked through the API; the underlying Git installation state requires the Cloudflare dashboard or Cloudflare support.
+The initial Git integration error appears to have cleared or been superseded by a successful connection; the exact mechanism is not established. The project now reports:
+- GitHub source connected.
+- Automatic deployments enabled.
+- Preview deployment setting `all`, with branch include pattern `*`.
+- Production deployments enabled in project configuration.
+- Production branch `main`.
+- No canonical production deployment.
 
-The public Cloudflare status page currently lists no active incident matching this Pages GitHub connection error. This does not rule out an account-specific integration fault.
+Cloudflare's official [Pages troubleshooting guide](https://developers.cloudflare.com/pages/configuration/git-integration/troubleshooting/) classifies error `8000011` as an internal Pages SCM error. Its [GitHub integration guide](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/) describes reinstalling the GitHub App as one recovery step, but no uninstall, suspension, or permission change has been performed.
+
+A read-only review of Cloudflare's published API schema found a Pages source-connect operation, but no documented read endpoint for inspecting the account's Git installation handshake. The project source and deployment state are visible through the API; deeper installation diagnostics require the Cloudflare dashboard or Cloudflare support.
 
 ### Safe troubleshooting sequence
 
@@ -72,9 +81,9 @@ The public Cloudflare status page currently lists no active incident matching th
 2. Re-check Cloudflare's Git integration/account connection from the Cloudflare dashboard using the already authorized account.
 3. If Cloudflare presents an explicit reconnect or re-authorize flow, inspect the scope and account shown before proceeding. Do not change repository access settings without separate approval.
 4. If the same error persists, collect the exact error, timestamp, and Ray ID and use Cloudflare support / the official troubleshooting path.
-5. If the dashboard does not expose a safe reconnect action, raise the issue with Cloudflare support using the exact error, timestamp, Ray ID, account ID, and project name. Ask support to inspect the Pages SCM installation/authorization state without revoking the GitHub App.
-6. Consider app uninstall/reinstall only as a later, separately confirmed recovery step. Uninstalling revokes Cloudflare access across the GitHub account's repositories and can interrupt other Cloudflare Git-connected projects.
-7. Do not create a second Pages project as a workaround without a separate decision; the existing `retro-technologies` project is the intended target.
+5. Since the source now connects and preview deployments have succeeded, do not repeat the earlier connect request or create a second Pages project.
+6. Keep the GitHub App installed; no uninstall/reinstall is currently indicated by the successful clone/build/deploy evidence.
+7. The current project configuration has automatic preview and production deployments enabled. Pause and obtain explicit authorization before changing these settings; do not treat this runbook as permission to alter them.
 
 No app uninstall, suspension, permission change, repository access change, or deployment has been performed.
 
@@ -83,11 +92,11 @@ No app uninstall, suspension, permission change, repository access change, or de
 - Keep repository `main` untouched until a separately approved review and merge.
 - Current website source work is on `feat/retro-website-v1`.
 - The Pages project's current production-branch field reads `main`, but production deployment is disabled and GitHub is not connected.
-- Do not enable production or preview deployments as part of connection troubleshooting.
-- Once the Git integration is healthy, agree and verify the safe branch/preview configuration before enabling any build or deployment.
-- Do not treat the reserved `.pages.dev` hostname as a live preview or canonical public company domain.
+- The current configuration enables automatic deployments for all preview branches and enables production deployments on `main`; these settings were observed, not changed in this work.
+- Do not change deployment settings without separate explicit approval.
+- The feature-branch preview is live at the alias recorded above; it is not the canonical public company domain.
 - Do not connect a custom domain or change DNS during initial validation.
-- A public production deployment requires separate explicit approval.
+- A successful production deployment and public launch require separate explicit approval.
 
 ## 6. Pre-publication checks
 
@@ -113,7 +122,7 @@ No D1 database, R2 bucket, DNS zone, custom domain, billing change, or deploymen
 Separate explicit approval is required before:
 
 - Uninstalling, suspending, or changing the GitHub App installation or its repository permissions.
-- Enabling preview or production deployments or changing the production branch.
+- Changing preview/production deployment settings or changing the production branch.
 - Publishing a public deployment.
 - Registering or connecting a parent domain.
 - Creating or changing DNS records.
