@@ -1,0 +1,66 @@
+name: RETRO website build
+
+on:
+  push:
+    branches:
+      - feat/retro-website-v1
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "script.js"
+      - "project.html"
+      - "privacy.html"
+      - "terms.html"
+      - "404.html"
+      - "robots.txt"
+      - "products/**"
+      - "scripts/**"
+      - ".github/workflows/retro-site-build.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "script.js"
+      - "project.html"
+      - "privacy.html"
+      - "terms.html"
+      - "404.html"
+      - "robots.txt"
+      - "products/**"
+      - "scripts/**"
+      - ".github/workflows/retro-site-build.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and audit public output
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Prepare allowlisted public site
+        run: node scripts/prepare-public-site.mjs
+
+      - name: Verify public output boundary
+        shell: bash
+        run: |
+          test -f dist/index.html
+          test -f dist/styles.css
+          test -f dist/script.js
+          test -f dist/404.html
+          test -f dist/robots.txt
+          test "$(find dist/products -type f -name index.html | wc -l)" -eq 6
+          test "$(find dist -type f | wc -l)" -eq 14
+          test ! -e dist/docs
+          test ! -e dist/README.md
+          test ! -e dist/.git

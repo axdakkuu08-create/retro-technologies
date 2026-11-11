@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace SITE_ORIGIN_REQUIRED with the approved HTTPS origin before publishing as sitemap.xml. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://SITE_ORIGIN_REQUIRED/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/nexus-ai/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/repilot-ai/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/pulse/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/arcane-protocol/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/ai-engineering-os/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/products/gemini-github-bridge/</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/privacy.html</loc></url>
+  <url><loc>https://SITE_ORIGIN_REQUIRED/terms.html</loc></url>
+</urlset>
