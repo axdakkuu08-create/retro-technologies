@@ -60,7 +60,11 @@ This confirms the repository is not excluded by the app's repository-selection s
 
 ### Diagnostic conclusion
 
-The static build script and Cloudflare build settings show no obvious cause for error `8000011`. The failure currently points to the Cloudflare Pages Git integration / authorization layer. The Pages project itself is accessible through the Cloudflare API, but its source is not connected.
+The static build script and Cloudflare build settings show no obvious cause for error `8000011`. The failure currently points to the Cloudflare Pages Git integration / authorization layer. The Pages project itself is accessible through the Cloudflare API, but its source is not connected. Cloudflare's official [Pages troubleshooting guide](https://developers.cloudflare.com/pages/configuration/git-integration/troubleshooting/) classifies this exact message as an internal error in the Pages source-control-management (SCM) system. Its [GitHub integration guide](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/) recommends reinstalling the GitHub App as a recovery step and contacting Cloudflare support if the issue persists.
+
+A read-only review of Cloudflare's published API schema found a Pages source-connect operation, but no documented read endpoint for inspecting the account's Git installation handshake. The existing Pages project and deployment state can be checked through the API; the underlying Git installation state requires the Cloudflare dashboard or Cloudflare support.
+
+The public Cloudflare status page currently lists no active incident matching this Pages GitHub connection error. This does not rule out an account-specific integration fault.
 
 ### Safe troubleshooting sequence
 
@@ -68,8 +72,9 @@ The static build script and Cloudflare build settings show no obvious cause for 
 2. Re-check Cloudflare's Git integration/account connection from the Cloudflare dashboard using the already authorized account.
 3. If Cloudflare presents an explicit reconnect or re-authorize flow, inspect the scope and account shown before proceeding. Do not change repository access settings without separate approval.
 4. If the same error persists, collect the exact error, timestamp, and Ray ID and use Cloudflare support / the official troubleshooting path.
-5. Consider app uninstall/reinstall only as a later, separately confirmed recovery step. Uninstalling revokes Cloudflare access across the GitHub account's repositories and can interrupt other Cloudflare Git-connected projects.
-6. Do not create a second Pages project as a workaround without a separate decision; the existing `retro-technologies` project is the intended target.
+5. If the dashboard does not expose a safe reconnect action, raise the issue with Cloudflare support using the exact error, timestamp, Ray ID, account ID, and project name. Ask support to inspect the Pages SCM installation/authorization state without revoking the GitHub App.
+6. Consider app uninstall/reinstall only as a later, separately confirmed recovery step. Uninstalling revokes Cloudflare access across the GitHub account's repositories and can interrupt other Cloudflare Git-connected projects.
+7. Do not create a second Pages project as a workaround without a separate decision; the existing `retro-technologies` project is the intended target.
 
 No app uninstall, suspension, permission change, repository access change, or deployment has been performed.
 
