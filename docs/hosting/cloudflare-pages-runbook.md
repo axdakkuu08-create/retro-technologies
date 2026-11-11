@@ -34,7 +34,7 @@ A Pages project has been created in the connected Cloudflare account.
 | Custom domain / DNS | Not configured |
 | Latest deployment | Successful preview from `feat/retro-website-v1` |
 | Canonical production deployment | None |
-| Deployment inventory | 3 deployments: 2 successful previews, 1 failed ad-hoc production build |
+| Deployment history | Successful feature previews, one failed ad-hoc production build, and skipped documentation-only events |
 
 The project now has a successful preview at [the branch preview URL](https://feat-retro-website-v1.retro-technologies.pages.dev). The project-level `.pages.dev` hostname is reserved, and the feature-branch alias is available for preview. The production branch field remains `main`; no successful production deployment exists.
 
@@ -57,7 +57,7 @@ The GitHub **Cloudflare Workers and Pages** App is installed on the `axdakkuu08-
 - Repository access is set to **All repositories**.
 - The app has metadata read access and administration, checks, code, deployments, and pull requests read/write access.
 
-Subsequent Cloudflare API reads now show the Pages project source as connected to the repository. Two GitHub push-triggered preview deployments from `feat/retro-website-v1` completed successfully. Their logs confirm repository cloning, execution of `node scripts/prepare-public-site.mjs`, preparation of 14 allowlisted files, and publication of those files.
+Subsequent Cloudflare API reads now show the Pages project source as connected to the repository. GitHub push-triggered preview deployments from `feat/retro-website-v1` completed successfully. Their logs confirm repository cloning, execution of `node scripts/prepare-public-site.mjs`, preparation of 14 allowlisted files, and publication of those files.
 
 A separate ad-hoc production deployment attempted against `main` SHA `f964f960cd2a7b87caba4c76fc3b0c5666224a44` failed during build because that older revision does not contain `scripts/prepare-public-site.mjs`. It did not reach the deploy stage. The `main` branch itself was not modified.
 
