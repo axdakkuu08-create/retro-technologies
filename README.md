@@ -38,25 +38,39 @@ The public build is intentionally allowlisted. The preparation script copies onl
 
 Internal documentation, infrastructure inventories, repository metadata, source templates, and other planning files are excluded.
 
-**Cloudflare Pages build settings (prepared, not configured):**
+### Cloudflare Pages project — current state (11 November 2026)
 
-| Setting | Value |
+A Cloudflare Pages project has been created for the RETRO company website:
+
+| Setting | Current state |
 |---|---|
+| Project | `retro-technologies` |
+| Reserved Pages hostname | `retro-technologies.pages.dev` |
 | Framework preset | None |
 | Root directory | `/` |
 | Build command | `node scripts/prepare-public-site.mjs` |
 | Build output directory | `dist` |
-| Source branch for current work | `feat/retro-website-v1` |
+| Node.js | 22 |
+| Production branch field | `main` |
+| GitHub source connection | Not connected |
+| Production deployments | Disabled |
+| Preview deployments | Disabled |
+| Custom domain / DNS | Not configured |
+| Deployments | None |
 
-The script uses Node.js built-in modules only; no package installation or framework build is needed. The Cloudflare project, GitHub connection, branch deployment policy, and domain remain unconfigured.
+The `.pages.dev` hostname is reserved for the project, but it does not currently serve a deployed website. The project has no latest or canonical deployment.
 
-Cloudflare Pages configuration and approval gates are documented in [the hosting runbook](docs/hosting/cloudflare-pages-runbook.md). The runbook is preparation only; no Cloudflare project or deployment is configured.
+The Cloudflare GitHub source-connection attempt currently fails with Cloudflare error `8000011` (internal Pages Git installation issue). The GitHub **Cloudflare Workers and Pages** App is installed on the `axdakkuu08-create` account and its installation settings show access to all repositories. The repository is therefore not currently excluded by the app's repository-selection setting. The remaining fault is under investigation; do not assume the app needs to be uninstalled or reinstalled.
+
+The project was created without a GitHub source because the initial source-connection request failed. No repository deployment has occurred. The existing Pulse Worker is separate and unaffected.
+
+The script uses Node.js built-in modules only; no package installation or framework build is needed. See [the hosting runbook](docs/hosting/cloudflare-pages-runbook.md) for verified settings, the connection failure, and release gates.
 
 ## Domain and launch readiness
 
-The canonical domain, DNS ownership, hosting provider, and deployment configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace it with the approved HTTPS origin before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`.
+The canonical domain, DNS ownership, and custom-domain configuration have not been verified or changed. The sitemap template intentionally contains `SITE_ORIGIN_REQUIRED`; replace it with the approved HTTPS origin before publishing it as `sitemap.xml`, then add the absolute sitemap URL to `robots.txt`.
 
-Before a public launch, publish final privacy and terms documents and verify the hosting provider's logging practices, accessibility, security, mobile rendering, and all product links. Browser/device testing, independent review, merge, and deployment approval are separate release gates. Source preparation alone does not establish that the site is ready for public launch.
+Before a public launch, publish final privacy and terms documents and verify the hosting provider's logging practices, accessibility, security, mobile rendering, and all product links. Browser/device testing, independent review, merge, and deployment approval are separate release gates. Source preparation and a configured-but-empty Pages project do not establish that the site is ready for public launch.
 
 ## Product independence and release accuracy
 
