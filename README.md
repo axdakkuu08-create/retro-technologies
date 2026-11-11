@@ -51,20 +51,23 @@ A Cloudflare Pages project has been created for the RETRO company website:
 | Build command | `node scripts/prepare-public-site.mjs` |
 | Build output directory | `dist` |
 | Node.js | 22 |
-| Production branch field | `main` |
-| GitHub source connection | Not connected |
-| Production deployments | Disabled |
-| Preview deployments | Disabled |
+| Production branch | `main` |
+| GitHub source connection | Connected to `axdakkuu08-create/retro-technologies` |
+| Automatic deployments | Enabled |
+| Preview deployments | All branches (`*`) |
+| Production deployments | Enabled in project configuration |
 | Custom domain / DNS | Not configured |
-| Deployments | None |
+| Deployment history | 2 successful previews, 1 failed ad-hoc production build, plus skipped documentation-only events |
 
-The `.pages.dev` hostname is reserved for the project, but it does not currently serve a deployed website. The project has no latest or canonical deployment.
+The feature-branch preview is available at [the preview URL](https://feat-retro-website-v1.retro-technologies.pages.dev). This is not the canonical production site. The project's canonical production deployment remains null.
 
-The Cloudflare GitHub source-connection attempt currently fails with Cloudflare error `8000011` (internal Pages Git installation issue). The GitHub **Cloudflare Workers and Pages** App is installed on the `axdakkuu08-create` account and its installation settings show access to all repositories. The repository is therefore not currently excluded by the app's repository-selection setting. The remaining fault is under investigation; do not assume the app needs to be uninstalled or reinstalled.
+The GitHub source connection is now present in the Cloudflare project API. Earlier connection attempts returned Cloudflare error `8000011`, but later GitHub push events successfully cloned and built the repository. The GitHub **Cloudflare Workers and Pages** App remains installed on the `axdakkuu08-create` account with access to all repositories. No uninstall, suspension, or permission change was performed.
 
-The project was created without a GitHub source because the initial source-connection request failed. No repository deployment has occurred. The existing Pulse Worker is separate and unaffected.
+**Deployment safety note:** The current project configuration enables automatic deployments, all preview branches, and production deployments. Documentation commits to `feat/retro-website-v1` triggered successful preview deployments. A separate ad-hoc production build against unchanged `main` SHA `f964f960cd2a7b87caba4c76fc3b0c5666224a44` failed because that revision does not contain `scripts/prepare-public-site.mjs`; it did not reach the deploy stage. No successful production deployment or canonical production deployment exists. These deployment settings were observed, not changed during this work.
 
-The script uses Node.js built-in modules only; no package installation or framework build is needed. See [the hosting runbook](docs/hosting/cloudflare-pages-runbook.md) for verified settings, the connection failure, and release gates.
+The existing Pulse Worker is separate and unaffected.
+
+The script uses Node.js built-in modules only; no package installation or framework build is needed. See [the hosting runbook](docs/hosting/cloudflare-pages-runbook.md) for current settings, deployment evidence, and release gates.
 
 ## Domain and launch readiness
 
