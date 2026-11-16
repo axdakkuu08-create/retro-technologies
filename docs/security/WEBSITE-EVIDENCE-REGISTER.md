@@ -127,6 +127,15 @@ Statuses are limited to what the evidence above supports.
 
 ## 6. Required verification run
 
+### F-07 — Hosting runbook contains stale configuration statements
+
+**Severity:** Medium (operational accuracy / release-control risk)  
+**Evidence:** The current `docs/hosting/cloudflare-pages-runbook.md` states that production deployment is disabled and GitHub is not connected. The live Cloudflare Pages API currently reports the GitHub source as connected, production deployments enabled, and preview deployments enabled for all branches.  
+**Required:** Reconcile the runbook against a fresh provider read, preserve the historical timeline, and distinguish current settings from prior states. Do not change Cloudflare settings as part of a documentation correction.  
+**Status:** Open. Runbook not modified in this PR.
+
+
+
 The next evidence pass should capture:
 
 1. Actual HTTPS response and full response headers from the current preview hostname.
@@ -143,3 +152,4 @@ The next evidence pass should capture:
 ## 7. Change log
 
 - **16 November 2026 — v1.0:** Initial evidence snapshot created from read-only GitHub and Cloudflare API inspection. No website code, hosting configuration, DNS, credentials, or deployment settings were changed.
+- **16 November 2026 — v1.1:** Added F-07 documenting stale hosting-runbook statements that conflict with the current Cloudflare API state.
