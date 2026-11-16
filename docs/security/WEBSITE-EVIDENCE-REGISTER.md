@@ -125,7 +125,62 @@ Statuses are limited to what the evidence above supports.
 **Required:** Review action provenance and pin to verified immutable commit SHAs with update policy.  
 **Status:** Open.
 
-## 6. Required verification run
+## 6. Live verification update — 16 November 2026
+
+### Public deployment checks
+
+The Cloudflare Pages preview at `https://31e7e016.retro-technologies.pages.dev` was fetched successfully. Homepage and `/products/pulse/` returned page content.
+
+Representative negative-path checks returned HTTP 404:
+- `/.env`
+- `/.git/config`
+- `/README.md`
+- `/docs/security/RETRO-SECURITY-BASELINE.md`
+- `/docs/hosting/cloudflare-pages-runbook.md`
+- `/docs/infrastructure/phase-0-inventory.md`
+- `/sitemap.xml.template`
+- `/.github/workflows/retro-site-build.yml`
+- `/scripts/prepare-public-site.mjs`
+- `/index.html.map`
+- `/styles.css.map`
+
+This is a representative exposure test, not an exhaustive path enumeration or a proof that no other file is exposed.
+
+### JavaScript source review
+
+The complete `script.js` on `feat/retro-website-v1` was reviewed. No `eval`, `document.write`, `innerHTML`, `outerHTML`, or `insertAdjacentHTML` sink was identified. Catalogue updates use `textContent`, DOM properties, and fixed product-slug mapping. This is a manual source review, not dynamic XSS testing.
+
+The homepage includes an inline `onsubmit` handler and the AI Engineering OS product page contains an inline style attribute. These are not, by themselves, demonstrated XSS vulnerabilities, but they must be accounted for when designing an enforceable CSP.
+
+### Search and dependency review
+
+GitHub source searches for common secret names/patterns and dangerous DOM sinks returned no matches. This is not a complete secret scan, does not cover all history or generated artifacts, and must not be interpreted as a clean secret-scanning result.
+
+The reviewed source tree has no `package.json` or Node package lockfile; the public-site build script uses Node.js built-in modules. The GitHub Actions workflow uses `actions/checkout@v4` and `actions/setup-node@v4`, which are major-version tags rather than immutable commit pins. No complete dependency or action-provenance scan was available.
+
+### Actual response headers
+
+**NOT VERIFIED.** The browser-fetch service returned page content and path statuses but did not expose raw response headers. An attempted independent header-check workflow could not be run. No header names or values are inferred from source configuration. CSP, HSTS, frame protection, MIME sniffing, referrer policy, and permissions policy remain unverified at the deployed endpoint.
+
+### Cloudflare deployment guard
+
+Cloudflare Pages project configuration was updated and read back successfully:
+- Production deployments disabled.
+- Preview deployment mode set to custom.
+- Preview branch allowlist: `feat/*`, `docs/*`, `security/*`, `fix/*`, `release/*`.
+- Production branch remains `main`.
+
+This is provider configuration evidence. It does not establish GitHub branch protection or prove that no other actor can deploy through a separate mechanism.
+
+### GitHub branch protection
+
+**NOT CONFIGURED.** The GitHub integration available for this review exposed branch-protection reads but no branch-protection write operation. Existing branch metadata still reports `protected: false` for `main` and `feat/retro-website-v1`. Required reviews and status checks therefore remain an open release-governance control.
+
+### Android Chrome
+
+**NOT VERIFIED.** The deployed pages were not tested on the user's physical Android device or a confirmed Android Chrome environment. Responsive CSS/source review is not a substitute for a device test.
+
+## 7. Required verification run
 
 ### F-07 — Hosting runbook contains stale configuration statements
 
@@ -153,3 +208,4 @@ The next evidence pass should capture:
 
 - **16 November 2026 — v1.0:** Initial evidence snapshot created from read-only GitHub and Cloudflare API inspection. No website code, hosting configuration, DNS, credentials, or deployment settings were changed.
 - **16 November 2026 — v1.1:** Added F-07 documenting stale hosting-runbook statements that conflict with the current Cloudflare API state.
+- **16 November 2026 — v1.2:** Added live preview path checks, manual JavaScript review, source-search limitations, Cloudflare deployment guard evidence, and explicit NOT VERIFIED states for raw headers, GitHub branch protection, and Android Chrome.
